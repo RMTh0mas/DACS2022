@@ -1,0 +1,135 @@
+
+# @name loginAPI
+POST http://localhost:8081/api/v1/auth/signin
+Content-Type: application/json
+
+{
+    "usuario":"admin",
+    "senha":"admin"
+}
+
+###
+@token = {{loginAPI.response.body.*}}
+
+###
+
+POST http://localhost:8081/api/v1/cidade
+content-type: application/json
+
+{
+    "nome": "Joinville"
+    
+}
+
+Authorization: Bearer {{token}}
+
+###
+
+GET http://localhost:8081/api/v1/medico
+Authorization: Bearer {{token}}
+
+###
+
+GET http://localhost:8081/api/v1/planodesaude
+Authorization: Bearer {{token}}
+
+###
+
+DELETE http://localhost:8081/api/v1/planodesaude/1
+Authorization: Bearer {{token}}
+
+###
+
+DELETE http://localhost:8081/api/v1/medico/67
+Authorization: Bearer {{token}}
+
+###
+
+GET http://localhost:8081/api/v1/cidade
+Authorization: Bearer {{token}}
+
+###
+
+DELETE http://localhost:8081/api/v1/cidade/14
+Authorization: Bearer {{token}}
+
+###
+
+GET http://localhost:8081/api/v1/pacientes
+Authorization: Bearer {{token}}
+
+###
+
+DELETE http://localhost:8081/api/v1/pacientes/6
+Authorization: Bearer {{token}}
+
+
+###
+GET http://localhost:8081/api/v1/pacientes/1
+Authorization: Bearer {{token}}
+
+###
+GET http://localhost:8081/api/v1/pacientes/nome/zinha
+Authorization: Bearer {{token}}
+
+###
+GET http://localhost:8081/api/v1/pacientes/?nome=ze
+Authorization: Bearer {{token}}
+
+###
+
+POST http://localhost:8081/api/v1/pacientes
+content-type: application/json
+
+{
+    "nome": "Zezinhodasneves",
+    "sexo": "Feminino",
+    "dataNascimento": "2022-08-17T00:00:00"
+}
+
+Authorization: Bearer {{token}}
+
+###
+
+POST http://localhost:8081/api/v1/pacientes
+content-type: application/json
+
+{
+    "id" : 1,
+    "nome": "Zezinho",
+    "sexo": "Masculino",
+    "dataNascimento": "2022-08-17T00:00:00"
+}
+
+Authorization: Bearer {{token}}
+
+###
+
+POST http://localhost:8081/api/v1/pacientes
+content-type: application/json
+
+{
+    "nome": "Mariazinha",
+    "sexo": "Feminino",
+    "dataNascimento": "2022-08-16T00:00:00"
+}
+
+Authorization: Bearer {{token}}
+
+###
+
+PUT http://localhost:8081/api/v1/pacientes/1
+content-type: application/json
+
+{
+    "nome": "Zezinho da Silva Sauro",
+    "sexo": "Masculino",
+    "dataNascimento": "2022-08-17T00:00:00"
+}
+
+Authorization: Bearer {{token}}
+
+###
+
+DELETE http://localhost:8081/api/v1/pacientes/1
+Authorization: Bearer {{token}}

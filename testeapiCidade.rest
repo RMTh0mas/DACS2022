@@ -1,0 +1,44 @@
+GET http://localhost:8081/api/v1/cidade
+
+###
+
+GET http://localhost:8081/api/v1/cidade/2
+
+###
+
+GET http://localhost:8081/api/v1/cidade/nome/ville
+
+###
+
+GET http://localhost:8081/api/v1/cidade/?nome=ze
+
+###
+
+POST http://localhost:8081/api/v1/cidade
+content-type: application/json
+
+{
+    "nome": "Garuva"
+}
+
+###
+
+POST http://localhost:8081/api/v1/cidade
+content-type: application/json
+
+{
+    "nome": "Joinville"
+}
+
+###
+
+PUT http://localhost:8081/api/v1/cidade/1
+content-type: application/json
+
+{
+    "nome": "Garuva City"
+}
+
+###
+
+DELETE http://localhost:8081/api/v1/cidade/1
